@@ -17,7 +17,7 @@ In order as they appear:
 - [Maps](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Maps/maps.go)
 - [Range](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Range/range.go)
 - [Functions](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Functions/functions.go)
-- [Multiple Return Values](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/MultipleReturnValues/multiple_return_values.go)
+- [Multiple Return Values](https://github.com/GiantsLoveDeathMetal/sigo/blob/master/MultpleReturnValues/multiple_return_values.go)
 - [Variadic Functions](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/VariadicFunctions/variadic_functions.go)
 - [Closures](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Closures/closures.go)
 - [Recursion](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Recursion/recursion.go)
