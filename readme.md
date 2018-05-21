@@ -28,6 +28,6 @@ In order as they appear:
 - [Errors](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Errors/go_errors.go)
 - [Gorountines](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Gorountines/gorountines.go)
 - [Channels](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Channels/channels.go)
-- [Channel Buffering](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/ChannelBuffering/channel_buffering.go)
+- [Channel Buffering](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/ChannnelBuffering/channel_buffering.go)
 - [Channel Synchronization](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/ChannelSynchronization/channel_synchronization.go)
 - [Channel Directions](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/ChannelDirections/channel_directions.go)
