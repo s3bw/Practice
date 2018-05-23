@@ -34,3 +34,7 @@ In order as they appear:
 - [Select](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Select/select.go)
 - [Timeouts](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Timeouts/timeouts.go)
 - [Non-Blocking Channel Operations](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/NonBlockingChannelOps/non_blocking_channel_ops.go)
+- [Closing Channels](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/CloseingChannels/closing_channels.go)
+- [Range over Channels](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/RangeOverChannels/range_over_channels.go)
+- [Timers](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Timers/timers.go)
+- [Tickers](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Tickers/tickers.go)
