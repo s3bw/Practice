@@ -38,3 +38,5 @@ In order as they appear:
 - [Range over Channels](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/RangeOverChannels/range_over_channels.go)
 - [Timers](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Timers/timers.go)
 - [Tickers](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Tickers/tickers.go)
+- [Worker Pools](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/WorkerPools/worker_pools.go)
+- [Rate Limiting](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/RateLimiting/rate_limiting.go)
