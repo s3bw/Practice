@@ -41,3 +41,4 @@ In order as they appear:
 - [Worker Pools](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/WorkerPools/worker_pools.go)
 - [Rate Limiting](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/RateLimiting/rate_limiting.go)
 - [Atomic Counter](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/AtomicCounters/atomic_counters.go)
+- [Mutexes](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Mutexes/mutexes.go)
