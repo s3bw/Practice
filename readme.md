@@ -1,4 +1,11 @@
 
+# Practise
+
+Small practise scripts
+
+- [Wait for routine](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Practise/waiting.go)
+
+
 # Learning Go by Example
 
 Exercises taken from this site: https://gobyexample.com/
