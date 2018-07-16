@@ -5,6 +5,7 @@ Small practise scripts
 
 - [Wait for routine](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Practise/waiting.go)
 - [Pop and append](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Practise/pop_append.go)
+- [Map Slice](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/Practise/map_opposites.go)
 
 
 # Learning Go by Example
