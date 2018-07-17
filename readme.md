@@ -51,3 +51,4 @@ In order as they appear:
 - [Rate Limiting](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/GoByExample/RateLimiting/rate_limiting.go)
 - [Atomic Counter](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/GoByExample/AtomicCounters/atomic_counters.go)
 - [Mutexes](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/GoByExample/Mutexes/mutexes.go)
+- [Stateful Gorountines](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/GoByExample/StatefulGoroutines/stateful_go.go)
