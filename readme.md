@@ -53,3 +53,4 @@ In order as they appear:
 - [Atomic Counter](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/GoByExample/AtomicCounters/atomic_counters.go)
 - [Mutexes](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/GoByExample/Mutexes/mutexes.go)
 - [Stateful Gorountines](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/GoByExample/StatefulGoroutines/stateful_go.go)
+- [Sorting](https://github.com/GiantsLoveDeathMetal/sigo/tree/master/GoByExample/Sorting/sorting.go)
