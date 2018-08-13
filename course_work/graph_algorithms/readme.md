@@ -1,3 +1,7 @@
 <h1 align="center">
     Graph Algorithms
 </h1>
+
+<p align="center">
+    <img src=http://picassolive.ru/wp-content/uploads/2013/10/Pablo-Picasso_Sketchbook-of-Le-chef-d-oeuvre-inconnu-de-Balzac_Juan-les-Pins_1924_C-D.jpg>
+</p>
