@@ -1,6 +1,5 @@
 package datastructures_test
 
-import "fmt"
 import "testing"
 
 import "github.com/GiantsLoveDeathMetal/Practice/trees/common"
@@ -18,7 +17,7 @@ func testQueue(queue datastructures.Queue, t *testing.T) {
 	queue.Enqueue(3)
 
 	helper.Assert(t, !queue.IsEmpty(), "Queue should not be empty")
-	helper.Assert(t, !queue.Size(), "Queue length should be 3")
+	helper.Assert(t, queue.Size() == 3, "Queue length should be 3")
 	queue.Dequeue()
 	queue.Dequeue()
 	item := queue.Dequeue()
