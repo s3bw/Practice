@@ -1,5 +1,7 @@
 package trees
 
+import "math/rand"
+
 type Tree struct {
 	Left  *Tree
 	Value int

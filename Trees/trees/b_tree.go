@@ -7,10 +7,9 @@ package trees
 import "fmt"
 import "math"
 import "strconv"
-import "math/rand"
 
 import "github.com/disiqueira/gotree"
-import "github.com/GiantsLoveDeathMetal/Practice/trees/datastructures"
+import "github.com/GiantsLoveDeathMetal/Practice/Trees/datastructures"
 
 // Trees may be of different shapes, but have the
 // same contents. For example:
@@ -93,14 +92,4 @@ func Draw(t *Tree) gotree.Tree {
 		}
 	}
 	return gtree
-}
-
-func main() {
-	t1 := New(10, 1)
-	// BF(t1)
-	Walk(t1)
-
-	gt := Draw(t1)
-	fmt.Println(gt.Print())
-	fmt.Println("Depth: ", Depth(t1))
 }
