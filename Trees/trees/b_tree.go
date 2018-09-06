@@ -24,14 +24,35 @@ func Visit(t *Tree) {
 	fmt.Println(t.Value)
 }
 
-// Walk traverses a tree; depth-first (In-order)
-func Walk(t *Tree) {
+// Walk traverses a tree
+// Depth-first (In-order)
+func WalkInOrder(t *Tree) {
 	if t == nil {
 		return
 	}
-	Walk(t.Left)
+	WalkInOrder(t.Left)
 	Visit(t)
-	Walk(t.Right)
+	WalkInOrder(t.Right)
+}
+
+// Depth-first (Pre-order)
+func WalkPreOrder(t *Tree) {
+	if t == nil {
+		return
+	}
+	Visit(t)
+	WalkPreOrder(t.Left)
+	WalkPreOrder(t.Right)
+}
+
+// Depth-first (Post-order)
+func WalkPostOrder(t *Tree) {
+	if t == nil {
+		return
+	}
+	Visit(t)
+	WalkPostOrder(t.Left)
+	WalkPostOrder(t.Right)
 }
 
 // Breath-first traversal
@@ -40,7 +61,7 @@ func BF(t *Tree) {
 	queue.Enqueue(t)
 	for queue.Size() > 0 {
 		n := queue.Dequeue().(*Tree)
-		Visit(t)
+		Visit(n)
 		if n.Left != nil {
 			queue.Enqueue(n.Left)
 		}
@@ -67,6 +88,10 @@ func Depth(t *Tree) float64 {
 		dright = Depth(t.Right)
 	}
 	return math.Max(dleft, dright) + 1
+}
+
+func UpdateHeight(t *Tree) {
+	t.height = math.Max(Depth(t.Left), Depth(t.Right)) + 1
 }
 
 // Breath-first Draw
