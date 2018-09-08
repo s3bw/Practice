@@ -1,6 +1,7 @@
 package trees
 
 import "time"
+import "math"
 import "math/rand"
 
 type Tree struct {
@@ -10,6 +11,16 @@ type Tree struct {
 	height float64
 	root   bool
 	parent *Tree
+}
+
+func NewNode(k int) *Tree {
+	return &Tree{
+		nil,
+		k,
+		nil,
+		0,
+		false,
+		nil}
 }
 
 // Create a new binary tree
@@ -42,62 +53,18 @@ func Insert(t *Tree, v int) *Tree {
 	return t
 }
 
-func NewNode(k int) *Tree {
-	return &Tree{
-		nil,
-		k,
-		nil,
-		0,
-		false,
-		nil}
-}
+func IsBalanced(t *Tree) bool {
+	var lh, rh float64
 
-func NewAVL(n, k int) *Tree {
-	var t, root *Tree
-
-	// Seed random b tree
-	rand.Seed(time.Now().UnixNano())
-	for _, v := range rand.Perm(n) {
-		t = NewNode(v + 1)
-		if root == nil {
-			root = t
-			root.root = true
-		} else {
-			InsertAVL(root, t)
-		}
-		Rebalance(t)
-		root = FindRoot(t)
+	if t == nil {
+		return true
 	}
-	return root
-}
-
-func InsertAVL(a, n *Tree) {
-	if n == nil {
-		return
+	lh = Depth(t.Left)
+	rh = Depth(t.Right)
+	if (math.Abs(lh-rh) <= 1) && IsBalanced(t.Left) && IsBalanced(t.Right) {
+		return true
 	}
-	if n.Value < a.Value {
-		if a.Left == nil {
-			n.parent = a
-			a.Left = n
-		} else {
-			InsertAVL(a.Left, n)
-		}
-	} else {
-		if a.Right == nil {
-			n.parent = a
-			a.Right = n
-		} else {
-			InsertAVL(a.Right, n)
-		}
-	}
-	return
-}
-
-func FindRoot(t *Tree) *Tree {
-	for t.parent != nil {
-		t = t.parent
-	}
-	return t
+	return false
 }
 
 func Successor(t *Tree) *Tree {

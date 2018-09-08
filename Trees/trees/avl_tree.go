@@ -12,7 +12,56 @@
 
 package trees
 
-import "math"
+import "time"
+import "math/rand"
+
+func FindRoot(t *Tree) *Tree {
+	for t.parent != nil {
+		t = t.parent
+	}
+	return t
+}
+
+func NewAVL(n, k int) *Tree {
+	var t, root *Tree
+
+	// Seed random b tree
+	rand.Seed(time.Now().UnixNano())
+	for _, v := range rand.Perm(n) {
+		t = NewNode(v + 1)
+		if root == nil {
+			root = t
+			root.root = true
+		} else {
+			InsertAVL(root, t)
+		}
+		Rebalance(t)
+		root = FindRoot(t)
+	}
+	return root
+}
+
+func InsertAVL(a, n *Tree) {
+	if n == nil {
+		return
+	}
+	if n.Value < a.Value {
+		if a.Left == nil {
+			n.parent = a
+			a.Left = n
+		} else {
+			InsertAVL(a.Left, n)
+		}
+	} else {
+		if a.Right == nil {
+			n.parent = a
+			a.Right = n
+		} else {
+			InsertAVL(a.Right, n)
+		}
+	}
+	return
+}
 
 func Find(t *Tree, k int) *Tree {
 	if k == t.Value {
@@ -106,18 +155,4 @@ func Rebalance(t *Tree) {
 		}
 		t = t.parent
 	}
-}
-
-func IsBalanced(t *Tree) bool {
-	var lh, rh float64
-
-	if t == nil {
-		return true
-	}
-	lh = Depth(t.Left)
-	rh = Depth(t.Right)
-	if (math.Abs(lh-rh) <= 1) && IsBalanced(t.Left) && IsBalanced(t.Right) {
-		return true
-	}
-	return false
 }
