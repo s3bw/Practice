@@ -45,4 +45,79 @@ endif
 " has set, and ==# which is case-sensitive.
 
 
-" Stopped at: http://ay.stevelosh.com/chapters/23.html
+" Functions must be defined with a capital letter.
+function Meow()
+    echom "Meow!"
+endfunction
+
+" Calling
+call Meow()
+
+" Returning
+function GetMeow()
+    return "Meow String!"
+endfunction
+
+echom GetMeow()
+
+" Implicit returning, if nothing is returned it returns
+" a 0
+function TextwidthIsTooWide()
+    if &l:textwidth ># 80
+        return 1
+    endif
+endfunction
+
+set textwidth=80
+if TextwidthIsTooWide()
+    echom "WARNING: Wide text!"
+endif
+
+" Arguments
+function DisplayName(name)
+    echom "Hello! My name is:"
+    echom a:name
+endfunction
+
+" We provide the a: to represent the variable scope.
+" otherwise vim won't be able to find the variable name.
+
+" Varargs
+function Varg(...)
+    echom a:0
+    echom a:1
+    echom a:000
+endfunction
+
+call Varg("a", "b")
+
+" The ellipsis tells vim that this function can take any
+" number of arguments. When we echo a:0 this will display 2
+" since this argument tells us of how many args were passed.
+" a:1 displays the first extra argument. etc.
+"
+" Args in the a: scope can not be reassigned.
+
+" Numbers can be resolved from hex notation using echom.
+echom 0xff
+
+
+" String concatenation
+" Vim has a concatenation operator, using .
+echom "Hello, " . "world"
+
+
+" Vim String Functions
+" split - splits by a separator
+" split('one, two, three', ',')
+"
+" join - joins by a separator
+" join(['foo", 'bar'], '...')
+"
+" tolower - lowercases
+" tolower('Foo')
+"
+" toupper - uppercases
+" toupper('Foo')
+"
+" Chapter 38
