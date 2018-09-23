@@ -33,6 +33,12 @@ func avl_trees() {
 	isbalanced(t)
 }
 
+// func rb_trees() {
+// 	t := trees.NewRB(20, 1)
+// 	// gt := trees.DrawRB(t)
+// 	// fmt.Println(gt.Print())
+// }
+
 func main() {
 	b_trees()
 	avl_trees()
