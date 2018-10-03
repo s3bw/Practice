@@ -8,6 +8,9 @@ Small practise scripts
 - [Map Slice](https://github.com/GiantsLoveDeathMetal/Practice/tree/master/go/other-practice/map_opposites.go)
 - [Random Range](https://github.com/GiantsLoveDeathMetal/Practice/tree/master/go/other-practice/random_range.go)
 
+# gophercises
+
+Source: [gophercises](https://gophercises.com/exercises/)
 
 # Learning Go by Example
 
