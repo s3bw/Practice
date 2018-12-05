@@ -50,9 +50,9 @@ func WalkPostOrder(t *Tree) {
 	if t == nil {
 		return
 	}
-	Visit(t)
 	WalkPostOrder(t.Left)
 	WalkPostOrder(t.Right)
+	Visit(t)
 }
 
 // Breath-first traversal
