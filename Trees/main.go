@@ -33,6 +33,17 @@ func avl_trees() {
 	isbalanced(t)
 }
 
+func dswAlgo() {
+	fmt.Println("Unbalanced tree.")
+	t1 := trees.New(10, 1)
+	stats(t1)
+	fmt.Println("\nVine Transformation.")
+	t1 = trees.VineTransformation(t1)
+	stats(t1)
+	trees.BalanceTree(t1)
+	stats(t1)
+}
+
 // func rb_trees() {
 // 	t := trees.NewRB(20, 1)
 // 	// gt := trees.DrawRB(t)
@@ -40,6 +51,7 @@ func avl_trees() {
 // }
 
 func main() {
-	b_trees()
-	avl_trees()
+	dswAlgo()
+	// b_trees()
+	// avl_trees()
 }

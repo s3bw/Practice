@@ -43,6 +43,16 @@ Depth:  9
 Tree is NOT balanced!
 ```
 
+## Day-Stout-Warren Algorithm
+
+The Day-Stout-Warren Algorithm ["DSW"] is an efficient
+method for balancing binary search trees. The algorithm
+requires linear time as operates in-place.
+
+Balancing is done in two phases, 1) by in-order traversal to
+transform the tree into a linked-list and 2) a series of
+left rotations.
+
 ## AVL Tree
 
 The AVL tree is a self-balancing binary search tree. The
