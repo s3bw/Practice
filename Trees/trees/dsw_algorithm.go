@@ -50,10 +50,10 @@ func BalanceTree(t *Tree) {
 	n = Depth(t)
 	m = greatestPowerOfTwo(uint(n))
 
-	makeRotations(t, int(n)-m)
+	t = makeRotations(t, int(n)-m)
 	for m > 1 {
 		m /= 2
-		makeRotations(t, m)
+		t = makeRotations(t, m)
 	}
 	fmt.Println(n)
 	fmt.Println(m)
@@ -72,5 +72,31 @@ func msb(n uint) int {
 	return ndx
 }
 
-func makeRotations(t *Tree, bound int) {
+func makeRotations(t *Tree, bound int) *Tree {
+	var gp *Tree
+	parent := t
+	child := parent.Right
+	for bound > 0 {
+		if child != nil && gp.Right != nil && gp.Right.Right != nil && child.Left != nil {
+			t = rotateLeft(t, gp, parent, child)
+			gp = child
+			parent = gp.Right
+			child = parent.Right
+		} else {
+			bound = 0
+		}
+		bound--
+	}
+	return t
+}
+
+func rotateLeft(t, gp, parent, rightChild *Tree) *Tree {
+	if gp != nil {
+		gp.Right = rightChild
+	} else {
+		t = rightChild
+	}
+	parent.Right = rightChild.Left
+	rightChild.Left = parent
+	return t
 }
