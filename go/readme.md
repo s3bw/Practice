@@ -13,7 +13,8 @@ Small practice scripts
 # Data structures & Algorithms
 
 - [Graph](./data-structures/graph.go)
-  - [BFS](./data-structures/BFS.go)
+  - [BFS](./data-structures/bfs.go)
+- [Dict Methods](./data-structures/dict.go)
 
 Source: [golang-data-structures](https://flaviocopes.com/golang-data-structures/)
 
