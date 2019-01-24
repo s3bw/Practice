@@ -1,8 +1,9 @@
 
 # go/other-practice
 
-Small practise scripts
+Small practice scripts
 
+- [Maps in go](./other-practice/maps_in_go.go)
 - [Wait for routine](https://github.com/GiantsLoveDeathMetal/Practice/tree/master/go/other-practice/waiting.go)
 - [Pop and append](https://github.com/GiantsLoveDeathMetal/Practice/tree/master/go/other-practice/pop_append.go)
 - [Map Slice](https://github.com/GiantsLoveDeathMetal/Practice/tree/master/go/other-practice/map_opposites.go)
@@ -11,6 +12,10 @@ Small practise scripts
 # gophercises
 
 Source: [gophercises](https://gophercises.com/exercises/)
+
+# Data structures
+
+Source: [golang-data-structures](https://flaviocopes.com/golang-data-structures/)
 
 # Learning Go by Example
 
