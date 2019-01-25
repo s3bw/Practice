@@ -1,7 +1,7 @@
 
 # go/other-practice
 
-Small practice scripts
+Small problem solving
 
 - [Decoding Json](./other-practice/decoding_json.go)
 - [Map Slice](./other-practice/map_opposites.go)
@@ -9,6 +9,10 @@ Small practice scripts
 - [Pop and append](./other-practice/pop_append.go)
 - [Random Range](./other-practice/random_range.go)
 - [Wait for routine](./other-practice/waiting.go)
+
+# Implementations from standard lib
+
+- [Remove `\r`](./std-lib/rm_chrs.go)
 
 # Data structures & Algorithms
 
