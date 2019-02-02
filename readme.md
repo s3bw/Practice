@@ -23,3 +23,7 @@
 - [In memory db](https://github.com/foxyblue/inmemdb) (2019)
 - [File registry](https://github.com/foxyblue/scap-registry) (2018)
 - [Rogue Simple](https://github.com/foxyblue/Rogue_simple) (2017)
+
+### Additional Reading
+
+- [Build-your-own-x](https://github.com/danistefanovic/build-your-own-x)

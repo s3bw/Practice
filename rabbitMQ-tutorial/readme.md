@@ -10,6 +10,15 @@
     Source: https://www.rabbitmq.com/getstarted.html
 </p>
 
+These tutorials are a great introduction to some messaging patterns.
+
+- [Hello World](./tutorial_1/)
+- [Round Robin](./tutorial_2/)
+- [Pub/Sub](./tutorial_3/)
+- [Routing](./tutorial_4/)
+- [Topics](./tutorial_5/)
+- [RPC](./tutorial_6/)
+
 ## Install
 
 ```
