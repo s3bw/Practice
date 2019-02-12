@@ -20,6 +20,7 @@
 
 ## Prototype Implementations
 
+- [Rogue-like (in Go)](https://github.com/foxyblue/gogue) (2019)
 - [In memory db](https://github.com/foxyblue/inmemdb) (2019)
 - [File registry](https://github.com/foxyblue/scap-registry) (2018)
 - [Rogue Simple](https://github.com/foxyblue/Rogue_simple) (2017)
