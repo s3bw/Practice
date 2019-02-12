@@ -24,6 +24,10 @@
 - [File registry](https://github.com/foxyblue/scap-registry) (2018)
 - [Rogue Simple](https://github.com/foxyblue/Rogue_simple) (2017)
 
+## Design
+
+- [Design Patterns](https://github.com/foxyblue/DesignPatterns)
+
 ### Additional Reading
 
 - [Build-your-own-x](https://github.com/danistefanovic/build-your-own-x)
