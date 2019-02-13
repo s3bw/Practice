@@ -42,6 +42,7 @@
 ## Languages
 
 - [**Go:**](./go/)
+- [**Bash:**](./bash/)
 - [**Vimscript:**](./vimscript/)
 
 ### Additional Reading
