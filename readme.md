@@ -20,14 +20,31 @@
 
 ## Prototype Implementations
 
-- [Rogue-like (in Go)](https://github.com/foxyblue/gogue) (2019)
-- [In memory db](https://github.com/foxyblue/inmemdb) (2019)
-- [File registry](https://github.com/foxyblue/scap-registry) (2018)
-- [Rogue Simple](https://github.com/foxyblue/Rogue_simple) (2017)
+>What I cannot create, I do not understand
+
+- Richard Feynman
+
+- TODO: **Hash-Table (Go):**
+- [**Rogue-like (in Go):**](https://github.com/foxyblue/gogue) (2019)
+- [**In memory db:**](https://github.com/foxyblue/inmemdb) (2019)
+- [**File registry:**](https://github.com/foxyblue/scap-registry) (2018)
+- [**Rogue Simple:**](https://github.com/foxyblue/Rogue_simple) (2017)
 
 ## Design
 
-- [Design Patterns](https://github.com/foxyblue/DesignPatterns)
+- [**Design Patterns:**](https://github.com/foxyblue/DesignPatterns) Includes summary and my own implementations.
+
+## Contents
+
+- [**Trees:**](./Trees/) Breakdown and implementation of obscure tree use-cases.
+- [**algorithms:**](./algorithms/) Mostly implemented from textbooks.
+- [**study:**](./study/) Short reminders on niche areas.
+- [**RabbitMQ-tutorial:**](./rabbitMQ-tutorial/) Covers messenger patterns.
+
+## Languages
+
+- [**Go:**](./go/)
+- [**Vimscript:**](./vimscript/)
 
 ### Additional Reading
 
