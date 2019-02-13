@@ -20,9 +20,7 @@
 
 ## Prototype Implementations
 
->What I cannot create, I do not understand
-
-- Richard Feynman
+>What I cannot create, I do not understand - Richard Feynman
 
 - TODO: **Hash-Table (Go):**
 - [**Rogue-like (in Go):**](https://github.com/foxyblue/gogue) (2019)
@@ -39,7 +37,7 @@
 - [**Trees:**](./Trees/) Breakdown and implementation of obscure tree use-cases.
 - [**algorithms:**](./algorithms/) Mostly implemented from textbooks.
 - [**study:**](./study/) Short reminders on niche areas.
-- [**RabbitMQ-tutorial:**](./rabbitMQ-tutorial/) Covers messenger patterns.
+- [**Messaging patterns:**](./rabbitMQ-tutorial/) Covers messenger patterns.
 
 ## Languages
 
