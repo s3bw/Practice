@@ -19,8 +19,15 @@ Small problem solving
 - [Graph](./data-structures/graph.go)
   - [BFS](./data-structures/bfs.go)
 - [Dict Methods](./data-structures/dict.go)
+- [List Methods](./data-structures/list.go)
 
 Source: [golang-data-structures](https://flaviocopes.com/golang-data-structures/)
+
+# golangbot
+
+- [part 28: polymorphism](./golangbot/polymorphism.go)
+
+Source: [golangbot.com](https://golangbot.com/)
 
 # gophercises
 

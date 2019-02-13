@@ -1,0 +1,37 @@
+BASH
+
+    Most of the things I have written in
+    bash actually live in my .bash_alias
+    file, which itself lives in a pvt
+    repo. However, I do have this neat
+    function which I wrote:
+
+    Prints all directories in file, then offers
+    indexes to change into those directories
+
+dl() {
+    DIR="$(pwd)"
+    files=(*/)
+
+    for (( i=0; i<${#files[@]} ; i+=2 ));
+    do
+        printf "%s) ${blue}%-25s${normal} | %s) ${blue}%-25s${normal}\n" "$i" "${files[i]}" "$((i+1))" "${files[i+1]}"
+    done
+
+    echo "Choose a directory [0-n/N]"
+    read -p "> " i
+    i=${i:-N}
+    if [ $i == 'N' ]
+    then
+        return
+    fi
+    result="$DIR/${files[$i]}"
+    cd "$result";
+}
+
+
+TODO; Separate pvt and public functions to
+open source my dotrc repo.
+
+Have a look at this:
+https://github.com/fteem/git-semantic-commits
