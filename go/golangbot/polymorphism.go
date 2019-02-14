@@ -7,6 +7,7 @@ type Income interface {
 	calculate() int
 	// name of the source
 	source() string
+	serviceCharge(i int)
 }
 
 // FixedBilling is a type of Project
@@ -35,6 +36,10 @@ func (fb FixedBilling) source() string {
 	return fb.projectName
 }
 
+func (fb *FixedBilling) serviceCharge(i int) {
+	fb.biddedAmount -= i
+}
+
 func (tm TimeAndMaterial) calculate() int {
 	return tm.totalHours * tm.hourlyRate
 }
@@ -43,18 +48,24 @@ func (tm TimeAndMaterial) source() string {
 	return tm.projectName
 }
 
+func (tm *TimeAndMaterial) serviceCharge(i int) {
+	tm.hourlyRate -= (i % 10)
+}
+
 // Since both FixedBilling and TimeAndMaterial
 // structs provide definitions for the calculate()
 // and the source() methods of the Income interface
 // both structs implement the Income interface.
 
-func calculateNetIncome(ic []Income) {
+func calculateNetIncome(ic []Income) []Income {
 	var netIncome int
 	for _, income := range ic {
+		income.serviceCharge(30)
 		fmt.Printf("Income from %s = £%d\n", income.source(), income.calculate())
 		netIncome += income.calculate()
 	}
-	fmt.Printf("Net income of organisation = £%d", netIncome)
+	fmt.Printf("Net income of organisation = £%d\n", netIncome)
+	return ic
 }
 
 // The calculateNetIncome function accepts a slice
@@ -82,12 +93,15 @@ func main() {
 		totalHours:  130,
 		hourlyRate:  18,
 	}
+	fmt.Printf("Project 5 £'s %d\n", project5.hourlyRate)
 	incomeStreams := []Income{
-		project1,
-		project2,
-		project3,
-		project4,
-		project5,
+		&project1,
+		&project2,
+		&project3,
+		&project4,
+		&project5,
 	}
-	calculateNetIncome(incomeStreams)
+	incomeStreams = calculateNetIncome(incomeStreams)
+	incomeStreams = calculateNetIncome(incomeStreams)
+	fmt.Printf("Project 5 £'s %d\n", project5.hourlyRate)
 }
