@@ -9,6 +9,7 @@ Small problem solving
 - [Pop and append](./other-practice/pop_append.go)
 - [Random Range](./other-practice/random_range.go)
 - [Wait for routine](./other-practice/waiting.go)
+- [Access Entity in slice](./other-practice/entity_problem.go)
 
 # Implementations from standard lib
 

@@ -18,7 +18,7 @@ type Story struct {
 	Characters []string `json:"characters"`
 }
 
-func main() {
+func _main() {
 	data := []byte(`
 		{
 			"id": "12he34",
