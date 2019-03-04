@@ -1,3 +1,5 @@
+/* Since the outer loop goes around n times, insertion sort must
+be a quadratic-time algorithm, i.e. O(n^2). */
 package main
 
 import "fmt"
@@ -18,7 +20,7 @@ func InsertSort(items []int) []int {
 	return items
 }
 
-func main() {
+func _main() {
 	items := []int{5, 2, 4}
 	items = InsertSort(items)
 	fmt.Println(items)
