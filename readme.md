@@ -22,7 +22,7 @@
 
 >What I cannot create, I do not understand - Richard Feynman
 
-- TODO: **Hash-Table (Go):**
+- [**Hash-Table (Go):**](https://github.com/foxyblue/go-hash-table) (2019)
 - [**Rogue-like (in Go):**](https://github.com/foxyblue/gogue) (2019)
 - [**In memory db:**](https://github.com/foxyblue/inmemdb) (2019)
 - [**File registry:**](https://github.com/foxyblue/scap-registry) (2018)
@@ -34,8 +34,8 @@
 
 ## Contents
 
-- [**Trees:**](./Trees/) Breakdown and implementation of obscure tree use-cases.
-- [**algorithms:**](./algorithms/) Mostly implemented from textbooks.
+- [**Trees:**](./Trees/) Attempts to implement obscure trees.
+- [**algorithms:**](./algorithms/) Implemented after studying from textbooks.
 - [**study:**](./study/) Short reminders on niche areas.
 - [**Messaging patterns:**](./rabbitMQ-tutorial/) Covers messenger patterns.
 
