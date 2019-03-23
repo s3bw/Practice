@@ -4,8 +4,8 @@
 
 ## Material
 
-[Learn Vimscript the Hardway](http://learnvimscriptthehardway.stevelosh.com)
-[Exercism vim track](https://exercism.io/my/tracks/vimscript)
+- [Learn Vimscript the Hardway](http://learnvimscriptthehardway.stevelosh.com)
+- [Exercism vim track](https://exercism.io/my/tracks/vimscript)
 
 ## Reminders
 
