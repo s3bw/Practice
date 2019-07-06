@@ -18,16 +18,22 @@
 
 - [Wiki](https://en.wikipedia.org/wiki/Pablo_Picasso#Style_and_technique)
 
-## Prototype Implementations
+## Prototypes and Projects
 
 >What I cannot create, I do not understand - Richard Feynman
 
-- [**Interpreter (Python)](https://github.com/foxyblue/interpreter-py) (2019)
+- [**Human friendly JSON logs (Go):**](https://github.com/foxyblue/tinj) (2019)
+- [**Async Multi port Listener (Go):**](https://github.com/foxyblue/noiibat) (2019)
+- [**Animal Hash (Go):**](https://github.com/foxyblue/animal-hash) (2019)
+- [**Server Client CLI (Go)**](https://github.com/foxyblue/server-cli) (2019)
+- [**Snippet manager (Python):**](https://github.com/foxyblue/snippet) (2019)
+- [**Interpreter (Python):**](https://github.com/foxyblue/interpreter-py) (2019)
 - [**Hash-Table (Go):**](https://github.com/foxyblue/go-hash-table) (2019)
 - [**Rogue-like (Go):**](https://github.com/foxyblue/gogue) (2019)
 - [**In memory db (Python):**](https://github.com/foxyblue/inmemdb) (2019)
+- [**Vim clock plugin (Vim):**](https://github.com/foxyblue/vim-clock-tick) (2018)
 - [**File registry (Python):**](https://github.com/foxyblue/scap-registry) (2018)
-- [**Rogue Simple (Python):**](https://github.com/foxyblue/Rogue_simple) (2017)
+- [**Rogue-like (Python):**](https://github.com/foxyblue/Rogue_simple) (2017)
 
 ## Design
 
