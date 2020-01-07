@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 
 class State(Enum):
+    """ Do I need this many states?"""
 
     NORMAL = 1
     PENDING = 2
@@ -58,11 +59,13 @@ class Typology:
 class Node:
     """ Some functions should only be used by the seed node.
     Nodes which are not seeds should not be able to receive join
-    requests. (Forward join requests?)
+    requests.
+        (Forward join requests to seed nodes?)
     """
 
     def __init__(self, name):
         self.name = name
+        self.cluster = "node-pool-e3a1"
         self._state = State.NO_STATE
         self.typology = Typology(self)
 
@@ -78,12 +81,16 @@ class Node:
         fail_states = [State.ORCHESTRATED, State.JOINING]
         if any([self.typology.node_in_state(state) for state in fail_states]):
             raise Exception("Nodes already being added")
-        self.prev_nodes = len(self.typology)
-        self._state = State.ORCHESTRATING
-        self.typology.bump_version(self._state)
+
+        if self._state != State.ORCHESTRATING:
+            self.current_nodes = len(self.typology)
+            self._state = State.ORCHESTRATING
+            self.typology.bump_version(self._state)
 
     def add(self, node):
-        """ Doesn't gossip updates until it receives 'done'"""
+        """ Doesn't gossip pending updates until it receives 'done'"""
+        if self.cluster != node.cluster:
+            raise Exception("Can't add node since it's configured for another cluster")
         self._start_orchestrating()
         digest = Digest(node.state, 0)
         self.adding.append((node.name, digest))
@@ -92,6 +99,7 @@ class Node:
     def done(self):
         print("Creating typology")
         while self.adding:
+            # Time adds artificial delay to enact partition assignment
             time.sleep(0.2)
             name, digest = self.adding.pop()
             self.typology.add(name, digest)
@@ -102,10 +110,17 @@ class Node:
 
     def check_added(self):
         """ Check if all nodes have been added to the system out of those we provided
-            partitions for."""
-        return (len(self.typology) - self.prev_nodes) == self.joining_nodes
+            partitions for.
+
+            In practice we will also have nodes leaving the system.
+        """
+        return (len(self.typology) - self.current_nodes) == self.joining_nodes
 
     def perform(self, network):
+        """ Perform gossip protocol.
+
+        https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/architecture/archGossipAbout.html
+        """
         # Choose random known node
         node_address = self.typology.get_random()
         # "Contact Node Over Network"
@@ -126,8 +141,9 @@ class Node:
             self._state = State.JOINING
             self.typology.bump_version(self._state)
 
-        if self._state == State.ORCHESTRATED and self.check_added():
-            self.prev_nodes = len(self.typology)
+        if (self._state == State.ORCHESTRATED) and (self.check_added()):
+            self.joining_nodes = 0
+            self.current_nodes = len(self.typology)
             self._state = State.NORMAL
             self.typology.bump_version(self._state)
 
@@ -147,37 +163,42 @@ def print_states(network):
 def all_perform(network):
     for n in network.values():
         n.perform(network)
+    print_states(network)
 
 
 if __name__ == "__main__":
     a = create_cluster()
     b = Node("B")
     c = Node("C")
-    network = {"A": a, "B": b, "C": c}
+    f = Node("F")
+    network = {"A": a, "B": b, "C": c}  # , "F": f}
 
-    print_states(network)
+    # Add b and c to cluster
     a.add(b)
-    print_states(network)
     a.add(c)
-    print_states(network)
     a.done()
+    # a.add(f)
+
+    # Perform 4 ticks
     print_states(network)
     all_perform(network)
-    all_perform(network)
-    all_perform(network)
-    all_perform(network)
-    print_states(network)
+    # Completed
 
     print("Adding 'D'")
     d = Node("D")
     network.update({"D": d})
     a.add(d)
-    print_states(network)
+
+    print("Adding 'E'")
+    e = Node("E")
+    network.update({"E": e})
+    a.add(e)
+
     a.done()
+
+    # Perform 4 ticks
     print_states(network)
     all_perform(network)
-    print_states(network)
-    all_perform(network)
-    print_states(network)
 
     print(a.typology._cluster)
+    all_perform(network)
