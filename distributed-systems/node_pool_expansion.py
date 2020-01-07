@@ -1,3 +1,13 @@
+"""
+Node state and status in cassandra:
+
+    Status - U (up) or D (down)
+    Indicates whether the node is functioning or not.
+
+    State - N (normal), L (leaving), J (joining), M (moving)
+    The state of the node in relation to the cluster.
+"""
+
 import time
 import random
 from enum import Enum
@@ -7,12 +17,9 @@ from dataclasses import dataclass
 class State(Enum):
     """ Do I need this many states?"""
 
-    NORMAL = 1
-    PENDING = 2
-    ORCHESTRATING = 3
-    ORCHESTRATED = 4
-    JOINING = 5
-    NO_STATE = 6
+    NO_STATE = 1
+    NORMAL = 2
+    JOINING = 3
 
 
 @dataclass
@@ -28,7 +35,14 @@ class Typology:
         self._cluster = {node.name: Digest(node.state, 0)}
 
     def node_in_state(self, state: State) -> bool:
-        return state in [digest.state for digest in self._cluster.values()]
+        return any(
+            [
+                digest.state == state
+                for name, digest in self._cluster.items()
+                if name != self.owner
+            ]
+        )
+        # return state in [digest.state for digest in self._cluster.values()]
 
     def add(self, name, digest: Digest):
         self._cluster.update({name: digest})
@@ -48,12 +62,12 @@ class Typology:
             yield (k, v)
 
     def update(self, other):
-        for node, digest in other.items():
-            if node in self._cluster:
-                d = self._cluster[node]
-                self._cluster[node] = digest if digest.version > d.version else d
-            else:
-                self._cluster[node] = digest
+        for name, digest in other.items():
+            if name in self._cluster:
+                d = self._cluster[name]
+                self._cluster[name] = digest if digest.version > d.version else d
+            elif name != self.owner:
+                self._cluster[name] = digest
 
 
 class Node:
@@ -63,10 +77,11 @@ class Node:
         (Forward join requests to seed nodes?)
     """
 
-    def __init__(self, name):
+    def __init__(self, name, seed=False):
         self.name = name
         self.cluster = "node-pool-e3a1"
-        self._state = State.NO_STATE
+        self._state = State.NO_STATE if not seed else State.NORMAL
+        self.seed = seed
         self.typology = Typology(self)
 
         self.current_nodes = len(self.typology)
@@ -78,13 +93,13 @@ class Node:
         return self._state
 
     def _start_orchestrating(self):
-        fail_states = [State.ORCHESTRATED, State.JOINING]
+        fail_states = [State.JOINING]
         if any([self.typology.node_in_state(state) for state in fail_states]):
-            raise Exception("Nodes already being added")
+            raise Exception("Cluster is rebalancing")
 
-        if self._state != State.ORCHESTRATING:
+        if self._state != State.JOINING:
             self.current_nodes = len(self.typology)
-            self._state = State.ORCHESTRATING
+            self._state = State.JOINING
             self.typology.bump_version(self._state)
 
     def add(self, node):
@@ -105,10 +120,10 @@ class Node:
             self.typology.add(name, digest)
             print("Node added")
 
-        self._state = State.ORCHESTRATED
+        self._state = State.NORMAL
         self.typology.bump_version(self._state)
 
-    def check_added(self):
+    def changes_made(self):
         """ Check if all nodes have been added to the system out of those we provided
             partitions for.
 
@@ -130,8 +145,16 @@ class Node:
         self.gossip(node.typology)
         node.gossip(self.typology)
 
-    def gossip(self, typology):
-        if self._state == State.JOINING:
+    def state_check(self):
+        if (self.seed) and (self.changes_made()):
+            self.joining_nodes = 0
+            self.current_nodes = len(self.typology)
+            self._state = State.NORMAL
+            self.typology.bump_version(self._state)
+
+        # Only once it's joined the cluster can is realise it's
+        # a seed itself
+        if self._state == State.JOINING and not self.seed:
             print(f"Rebalancing {self.name}")
             time.sleep(0.4)
             self._state = State.NORMAL
@@ -141,19 +164,9 @@ class Node:
             self._state = State.JOINING
             self.typology.bump_version(self._state)
 
-        if (self._state == State.ORCHESTRATED) and (self.check_added()):
-            self.joining_nodes = 0
-            self.current_nodes = len(self.typology)
-            self._state = State.NORMAL
-            self.typology.bump_version(self._state)
-
+    def gossip(self, typology):
+        self.state_check()
         self.typology.update(typology)
-
-
-def create_cluster():
-    n = Node("A")
-    n._state = State.NORMAL
-    return n
 
 
 def print_states(network):
@@ -167,14 +180,17 @@ def all_perform(network):
 
 
 if __name__ == "__main__":
-    a = create_cluster()
+    a = Node("A", seed=True)
+
     b = Node("B")
     c = Node("C")
     f = Node("F")
     network = {"A": a, "B": b, "C": c}  # , "F": f}
 
     # Add b and c to cluster
+    print(a.typology._cluster)
     a.add(b)
+    print(a.typology._cluster)
     a.add(c)
     a.done()
     # a.add(f)
