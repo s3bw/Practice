@@ -2,7 +2,7 @@ class Stack:
     def __init__(self):
         self._list = []
 
-    def add(self, item):
+    def push(self, item):
         self._list.append(item)
 
     def pop(self):
@@ -21,7 +21,7 @@ class Queue:
         self._out = Stack()
 
     def enqueue(self, item):
-        self._in.add(item)
+        self._in.push(item)
 
     def dequeue(self):
         if self._out:
@@ -29,7 +29,7 @@ class Queue:
 
         while self._in:
             item = self._in.pop()
-            self._out.add(item)
+            self._out.push(item)
 
         if self._out:
             return self._out.pop()
@@ -39,12 +39,12 @@ class Queue:
 
 if __name__ == "__main__":
     stack = Stack()
-    stack.add(1)
+    stack.push(1)
     print(f"Get {stack.pop()} expected: 1")
     assert not stack
 
-    stack.add(2)
-    stack.add(3)
+    stack.push(2)
+    stack.push(3)
     assert stack
 
     print(f"Get {stack.pop()} expected: 3")
