@@ -21,9 +21,15 @@ class Queue:
         self._out = Stack()
 
     def enqueue(self, item):
+        """ O(1)
+        """
         self._in.push(item)
 
     def dequeue(self):
+        """
+        Time: O(1) <- Amortized
+        Worst case: O(n)
+        """
         if self._out:
             return self._out.pop()
 
