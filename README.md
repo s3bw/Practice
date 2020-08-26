@@ -18,10 +18,19 @@
 
 - [Wiki](https://en.wikipedia.org/wiki/Pablo_Picasso#Style_and_technique)
 
+## Design
+
+- [**Design Patterns:**](https://github.com/foxyblue/DesignPatterns) Includes summary and my own implementations.
+
+
 ## Prototypes and Projects
 
 >What I cannot create, I do not understand - Richard Feynman
 
+- [**Minesweeper (Python):**](https://github.com/foxyblue/minesweeper) (2020)
+- [**Hedvig Werner (blog) (html/css):**](https://hedvigwerner.com/) (2020)
+- [**Shell Hints (site) (Python/Javascript):**](http://shell-hints.herokuapp.com/) (2020)
+- [**MTG Card Management (Javascript/Python):**](https://github.com/foxyblue/mtg-inventory) (2020)
 - [**Human friendly JSON logs (Go):**](https://github.com/foxyblue/tinj) (2019)
 - [**Async Multi port Listener (Go):**](https://github.com/foxyblue/noiibat) (2019)
 - [**Animal Hash (Go):**](https://github.com/foxyblue/animal-hash) (2019)
@@ -34,10 +43,6 @@
 - [**Vim clock plugin (Vim):**](https://github.com/foxyblue/vim-clock-tick) (2018)
 - [**File registry (Python):**](https://github.com/foxyblue/scap-registry) (2018)
 - [**Rogue-like (Python):**](https://github.com/foxyblue/Rogue_simple) (2017)
-
-## Design
-
-- [**Design Patterns:**](https://github.com/foxyblue/DesignPatterns) Includes summary and my own implementations.
 
 ## Contents
 
