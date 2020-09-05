@@ -20,6 +20,8 @@
 
 ## Design
 
+>The point is that you learn how to make your work by making your work, and a great many of the pieces you make along the way will never stand out _as finished art - Art & Fear
+
 - [**Design Patterns:**](https://github.com/foxyblue/DesignPatterns) Includes summary and my own implementations.
 
 
@@ -27,9 +29,12 @@
 
 >What I cannot create, I do not understand - Richard Feynman
 
+- [**Conway's Game of Life (Golang):**](https://github.com/foxyblue/game-of-life) (2020)
+- [**Personal Site (html/css):**](https://sebastien-docs.info) (2020)
 - [**Minesweeper (Python):**](https://github.com/foxyblue/minesweeper) (2020)
 - [**Hedvig Werner (blog) (html/css):**](https://hedvigwerner.com/) (2020)
 - [**Shell Hints (site) (Python/Javascript):**](http://shell-hints.herokuapp.com/) (2020)
+- [**Card Token Service Provider (Python):**](https://github.com/foxyblue/primer-token-service) (2020)
 - [**MTG Card Management (Javascript/Python):**](https://github.com/foxyblue/mtg-inventory) (2020)
 - [**Human friendly JSON logs (Go):**](https://github.com/foxyblue/tinj) (2019)
 - [**Async Multi port Listener (Go):**](https://github.com/foxyblue/noiibat) (2019)
