@@ -29,7 +29,7 @@
 
 >What I cannot create, I do not understand - Richard Feynman
 
-- [**Conway's Game of Life (Golang):**](https://github.com/foxyblue/game-of-life) (2020)
+- [**Conway's Game of Life (Go):**](https://github.com/foxyblue/game-of-life) (2020)
 - [**Personal Site (html/css):**](https://sebastien-docs.info) (2020)
 - [**Minesweeper (Python):**](https://github.com/foxyblue/minesweeper) (2020)
 - [**Hedvig Werner (blog) (html/css):**](https://hedvigwerner.com/) (2020)
@@ -47,6 +47,7 @@
 - [**In memory db (Python):**](https://github.com/foxyblue/inmemdb) (2019)
 - [**Vim clock plugin (Vim):**](https://github.com/foxyblue/vim-clock-tick) (2018)
 - [**File registry (Python):**](https://github.com/foxyblue/scap-registry) (2018)
+- [**Twitter bot Dennis (Python):**](https://github.com/foxyblue/dennis_bot) (2017)
 - [**Rogue-like (Python):**](https://github.com/foxyblue/Rogue_simple) (2017)
 
 ## Contents
