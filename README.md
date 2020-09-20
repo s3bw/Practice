@@ -29,6 +29,7 @@
 
 >What I cannot create, I do not understand - Richard Feynman
 
+- [**Classic Snake (Go):**](https://github.com/foxyblue/classic-snake) (2020)
 - [**Conway's Game of Life (Go):**](https://github.com/foxyblue/game-of-life) (2020)
 - [**Personal Site (html/css):**](https://sebastien-docs.info) (2020)
 - [**Minesweeper (Python):**](https://github.com/foxyblue/minesweeper) (2020)
