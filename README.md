@@ -29,6 +29,8 @@
 
 >What I cannot create, I do not understand - Richard Feynman
 
+- [**Micro web framework (python):**](https://github.com/foxyblue/mau) (2022)
+- [**How Many Fit (javascript):**](https://github.com/foxyblue/howManyFit) (2022)
 - [**Classic Snake (Go):**](https://github.com/foxyblue/classic-snake) (2020)
 - [**Conway's Game of Life (Go):**](https://github.com/foxyblue/game-of-life) (2020)
 - [**Personal Site (html/css):**](https://sebastien-docs.info) (2020)
