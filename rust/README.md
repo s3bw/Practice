@@ -1,5 +1,10 @@
 # Rust
 
+```bash
+cargo build
+./hello
+```
+
 [Rust-By-Example](https://doc.rust-lang.org/rust-by-example)
 
 ## Primitives
@@ -65,7 +70,135 @@ fn main() {
 }
 ```
 
-...[progress](https://doc.rust-lang.org/rust-by-example/custom_types/enum/enum_use.html)...
+### Scopes (Ownership, borrowing and lifetimes)
+
+Indications to the compiler when borrows are valid, when resources
+can be freed, and when variables are created or destroyed.
+
+Variable in Rust do more than just hold data in the stack: they
+also _own_ resources, e.g. `Box<T>` owns memory in the head. Rust
+enforces `RAII` (Resource Acquisition Is Initialization), so
+whenever an object goes out of scope, its destructor is called and
+its owned resources are freed.
+This behavior shields against _resource leak_ bugs, so you'll never
+have to manually free memory or worry about memory leaks again!
+
+<b>Destructor:</b> The notion of a destructor in Rust is provided
+through the `Drop` trait. The destructor is called when the resource
+goes out of scope. This trait is not required to be implemented for
+every type, only implement it for your type if you require its own
+destructor logic.
+
+Ownership and moves. Because variables are in charge of freeing
+their own resources, resources can only have one owner. This also
+prevents resources from being freed more than once. Note that not
+all variables own resources.
+
+When doing assignments (`let x = y`) or passing function args by
+value (`foo(x)`), the _ownership_ of the resource is transferred.
+This is known as a _move_. (Rust-speak).
+
+```rust
+fn destroy(c: Box<i32>) {
+    println!("Destroying a box that contains {}", c);
+}
+
+fn main() {
+    let a = Box::new(5i32);
+    println!("a contains: {}", a);
+
+    // *Move* `a` into `b`
+    // The pointer address of `a` is copied (not the data)
+    // into `b`. Both are now pointers to the same heap
+    // allocated data, but `b` now owns it.
+    let b = a;
+
+    // Error! `a` can no longer access the data, because it
+    // no longer owns the heap memory
+    //println!("a contains: {}", a);
+
+    // This function takes ownership of the heap allocated
+    // memory from `b`
+    destroy(b);
+
+    // Since the heap memory has been freed at this point,
+    // the action would result in a dereferencing freed
+    // memory, but it's forbidden by the compiler
+    // Error! Same reason as the previous Error
+    //println!("b contains: {}", b);
+}
+```
+
+Mutability, of data can be changed when ownership is transferred.
+
+A "borrow" refers to a way in which code can access data without
+taking full ownership of it. Rust's borrowing system is a concept
+designed to ensure memory safety and prevent data races. It plays
+a crucial role in enforing rules such as the ownership, borrowing
+and lifetimes of data.
+
+1. Read-Only Borrows: These allow multiple parts of the code to
+read the data at the same time. While data is immutably borrowed,
+it cannot be modified until the borrow is released.
+
+```rust
+fn main() {
+    let x = 42;
+    let y = &x; // Immutable borrow
+    println!("x: {}", x);  // Valid, because we're only reading x
+}
+```
+
+2. Mutable Borrows: (Read/Write), There allow one part of your code
+to modify the data while ensuring that no other part of the code is
+simultaneously reading or modifying the data. There can be only one
+mutable borrow at a time.
+
+```rust
+fn main() {
+    let mut x = 42;
+    let y = &mut x;  // Mutable borrow
+    *y = 10;  // Valid, because we're modifying x through the mutable
+              // borrow.
+}
+```
+
+3. Interior Mutability: In some cases, you might want to mutate data
+behind an immutable reference. This is possible with types like
+`Cell`, `RefCell` and `Mutex`, which allow interior mutability while
+preserving Rust's safety guarantees. This is considered advanced and
+is typically used in certain safe patterns, such as for thread sync
+
+```rust
+use std::cell::Cell;
+
+fn main() {
+    let x = Cell::new(42);
+    let y = &x  // Immutable borrow
+    x.set(10);  // Valid, even though we have an immutable borrow.
+}
+```
+
+### Explicit Typing
+
+Given the two examples `.collect::<String>()` and `.collection()`.
+Both are used to collect items into a string, but there is a key
+difference between the two.
+
+1. `.collect::<String>()`. This method explicitly specifies the
+type you want to collect into, in this case, a `String`. It is
+useful when you want to be explicit about the type of the collection
+
+2. `.collect()`. This method infers the type of the collection from
+the context in which it's used. In most cases, this will work just
+fine, as the Rust compiler can usually infer the appropriate type.
+It is more concise and is often used when the target type can be
+easily determined from the surrounding code.
+
+### Lifetime specifier
+
 
 
 ### Traits
+
+...[progress](https://doc.rust-lang.org/rust-by-example/custom_types/enum/enum_use.html)...
